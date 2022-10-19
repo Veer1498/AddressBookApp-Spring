@@ -1,7 +1,10 @@
 package com.bridgelabz.addressbookapp.dto;
 
 import lombok.Data;
-
+/**
+ * Puprose : To Create AddressBook App and Perform Operations like CRUD using Data Base.
+ * Author : Veer.Singa
+ */
 @Data
 public class ResponseDTO {
     private String message;
