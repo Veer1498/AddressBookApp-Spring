@@ -5,7 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+/**
+ * Puprose : To Create AddressBook App and Perform Operations like CRUD using Data Base.
+ * Author : Veer.Singa
+ */
 @RestController
 @RequestMapping("/addressbook")
 public class AddressBookController {
@@ -16,7 +19,7 @@ public class AddressBookController {
      *
      * @return
      */
-    @GetMapping("/welcome")
+    @GetMapping(value = {"","/welcome"})
     public String welcomeMessage(){
         return addessBookService.getWelcomeMessage();
     }
