@@ -1,5 +1,6 @@
 package com.bridgelabz.addressbookapp.model;
 
+import com.bridgelabz.addressbookapp.dto.ContactDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,4 +32,15 @@ public class ContactData {
     private int pin;
     private long phoneNo;
     private String email;
+
+    public ContactData(ContactDTO contactDTO){
+        this.firstName = contactDTO.getFirstName();
+        this.lasName = contactDTO.getLasName();
+        this.address = contactDTO.getAddress();
+        this.city = contactDTO.getCity();
+        this.state = contactDTO.getState();
+        this.pin = contactDTO.getPin();
+        this.phoneNo = contactDTO.getPhoneNo();
+        this.email = contactDTO.getEmail();
+    }
 }
