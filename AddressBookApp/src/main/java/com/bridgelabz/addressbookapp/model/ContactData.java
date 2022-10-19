@@ -25,17 +25,17 @@ public class ContactData {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int contactId;
     private String firstName;
-    private String lasName;
+    private String lastName;
     private String address;
     private String city;
     private String state;
-    private int pin;
-    private long phoneNo;
+    private String pin;
+    private String phoneNo;
     private String email;
 
     public ContactData(ContactDTO contactDTO){
         this.firstName = contactDTO.getFirstName();
-        this.lasName = contactDTO.getLasName();
+        this.lastName = contactDTO.getLasName();
         this.address = contactDTO.getAddress();
         this.city = contactDTO.getCity();
         this.state = contactDTO.getState();
