@@ -37,4 +37,24 @@ public class AddressBookController {
         ResponseDTO responseDTO = new ResponseDTO("Contact Data Created SuccessFully",contactData);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
+    @PutMapping("/update/{contactId}")
+    public ResponseEntity<ResponseDTO> updateDataofDataBase(@PathVariable int contactId, @Valid @RequestBody ContactDTO contactDTO){
+        ContactData contactData = null;
+        contactData = addessBookService.updateContactData(contactId,contactDTO);
+        ResponseDTO responseDTO = new ResponseDTO("Updated the Contact Information for this ID",contactData);
+        return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
+    }
+    @GetMapping("/get/{contactId}")
+    public ResponseEntity<ResponseDTO> getContactbyId(@PathVariable int contactId){
+        ContactData contactData = null;
+        contactData = addessBookService.getContactbyId(contactId);
+        ResponseDTO responseDTO = new ResponseDTO("Got the Contact Information for this ID",contactData);
+        return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
+    }
+
+    @DeleteMapping("delete/{contactId}")
+    public void deleteContactById(@PathVariable int contactId){
+        addessBookService.deleteContactById(contactId);
+    }
+
 }

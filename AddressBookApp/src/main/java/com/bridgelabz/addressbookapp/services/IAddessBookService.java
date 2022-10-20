@@ -11,4 +11,10 @@ public interface IAddessBookService {
     String getWelcomeMessage();
 
     ContactData createContactData(ContactDTO contactDTO);
+
+    ContactData updateContactData(int contactId, ContactDTO contactDTO);
+
+    ContactData getContactbyId(int contactId);
+
+    void deleteContactById(int contactId);
 }

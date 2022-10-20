@@ -43,4 +43,15 @@ public class ContactData {
         this.phoneNo = contactDTO.getPhoneNo();
         this.email = contactDTO.getEmail();
     }
+
+    public void updateContactInfo(ContactDTO contactDTO) {
+        this.firstName = contactDTO.getFirstName();
+        this.lastName = contactDTO.getLasName();
+        this.address = contactDTO.getAddress();
+        this.city = contactDTO.getCity();
+        this.state = contactDTO.getState();
+        this.pin = contactDTO.getPin();
+        this.phoneNo = contactDTO.getPhoneNo();
+        this.email = contactDTO.getEmail();
+    }
 }
