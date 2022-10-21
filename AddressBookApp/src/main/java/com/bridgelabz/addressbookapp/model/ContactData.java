@@ -33,6 +33,10 @@ public class ContactData {
     private String phoneNo;
     private String email;
 
+    /**
+     *
+     * @param contactDTO
+     */
     public ContactData(ContactDTO contactDTO){
         this.firstName = contactDTO.getFirstName();
         this.lastName = contactDTO.getLasName();
@@ -44,6 +48,10 @@ public class ContactData {
         this.email = contactDTO.getEmail();
     }
 
+    /**
+     *
+     * @param contactDTO
+     */
     public void updateContactInfo(ContactDTO contactDTO) {
         this.firstName = contactDTO.getFirstName();
         this.lastName = contactDTO.getLasName();
