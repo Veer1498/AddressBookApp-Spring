@@ -12,7 +12,7 @@ public interface IUserService {
      * @param userRegistrationDTO
      * @return
      */
-    UserData createUserRegistration(UserRegistrationDTO userRegistrationDTO);
+    String createUserRegistration(UserRegistrationDTO userRegistrationDTO);
 
     /**
      *

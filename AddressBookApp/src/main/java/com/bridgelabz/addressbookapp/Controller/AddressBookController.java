@@ -75,7 +75,7 @@ public class AddressBookController {
 
     /**
      *Method to Delete by ID
-     * @param contactId
+     * @param token
      */
     @DeleteMapping("delete")
     public void deleteContactById(@RequestHeader String token){
