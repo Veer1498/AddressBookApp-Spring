@@ -1,7 +1,10 @@
 package com.bridgelabz.addressbookapp.services;
 
+import com.bridgelabz.addressbookapp.dto.UserLoginDTO;
 import com.bridgelabz.addressbookapp.dto.UserRegistrationDTO;
 import com.bridgelabz.addressbookapp.model.UserData;
+
+import java.util.Optional;
 
 public interface IUserService {
     /**
@@ -13,9 +16,7 @@ public interface IUserService {
 
     /**
      *
-     * @param userName
-     * @param password
      * @return
      */
-    UserData loginAccount(String userName, String password);
+    Optional<UserData> loginAccount(UserLoginDTO userLoginDTO);
 }
