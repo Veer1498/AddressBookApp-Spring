@@ -6,6 +6,7 @@ import com.bridgelabz.addressbookapp.exception.AddressBookException;
 import com.bridgelabz.addressbookapp.model.UserData;
 import com.bridgelabz.addressbookapp.repository.UserRepository;
 import com.bridgelabz.addressbookapp.utility.AddressBookUtility;
+import com.bridgelabz.addressbookapp.utility.MailSender;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,10 +19,13 @@ public class UserService implements IUserService{
     UserRepository userRepository;
     @Autowired
     AddressBookUtility addressBookUtility;
+    @Autowired
+    MailSender mailSender;
     public String createUserRegistration(UserRegistrationDTO userRegistrationDTO) {
         UserData userData = new UserData(userRegistrationDTO);
         userRepository.save(userData);
         String token = addressBookUtility.createToken(userData.getUserId());
+        mailSender.sendEmail(userRegistrationDTO.getUserEmail(),"Registration Succesful","Account Created with "+userData);
         return token;
     }
 
