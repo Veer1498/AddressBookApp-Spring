@@ -41,46 +41,45 @@ public class AddressBookController {
      */
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO> saveDataIntoDataBase(@Valid @RequestBody ContactDTO contactDTO){
-        ContactData contactData = null;
-        contactData = addessBookService.createContactData(contactDTO);
-        ResponseDTO responseDTO = new ResponseDTO("Contact Data Created SuccessFully",contactData);
-        return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
+        String token = addessBookService.createContactData(contactDTO);
+        ResponseDTO responseDTO = new ResponseDTO("Contact Data Created SuccessFully",token);
+        return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.CREATED);
     }
 
     /**
      *Method to Update earlier data by using ID
-     * @param contactId
+     * @param token
      * @param contactDTO
      * @return
      */
-    @PutMapping("/update/{contactId}")
-    public ResponseEntity<ResponseDTO> updateDataofDataBase(@PathVariable int contactId, @Valid @RequestBody ContactDTO contactDTO){
+    @PutMapping("/update")
+    public ResponseEntity<ResponseDTO> updateDataofDataBase(@RequestHeader String token, @Valid @RequestBody ContactDTO contactDTO){
         ContactData contactData = null;
-        contactData = addessBookService.updateContactData(contactId,contactDTO);
+        contactData = addessBookService.updateContactData(token,contactDTO);
         ResponseDTO responseDTO = new ResponseDTO("Updated the Contact Information for this ID",contactData);
         return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
     }
 
     /**
      * Method to Get Data to see using ID
-     * @param contactId
+     * @param token
      * @return
      */
-    @GetMapping("/get/{contactId}")
-    public ResponseEntity<ResponseDTO> getContactbyId(@PathVariable int contactId){
+    @GetMapping("/get")
+    public ResponseEntity<ResponseDTO> getContactbyId(@RequestHeader String token){
         ContactData contactData = null;
-        contactData = addessBookService.getContactbyId(contactId);
+        contactData = addessBookService.getContactbyId(token);
         ResponseDTO responseDTO = new ResponseDTO("Got the Contact Information for this ID",contactData);
         return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
     }
 
     /**
      *Method to Delete by ID
-     * @param contactId
+     * @param token
      */
-    @DeleteMapping("delete/{contactId}")
-    public void deleteContactById(@PathVariable int contactId){
-        addessBookService.deleteContactById(contactId);
+    @DeleteMapping("delete")
+    public void deleteContactById(@RequestHeader String token){
+        addessBookService.deleteContactById(token);
     }
 
     /**

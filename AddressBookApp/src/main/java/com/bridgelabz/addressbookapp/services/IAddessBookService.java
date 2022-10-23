@@ -12,13 +12,13 @@ public interface IAddessBookService {
      */
     String getWelcomeMessage();
 
-    ContactData createContactData(ContactDTO contactDTO);
+    String createContactData(ContactDTO contactDTO);
 
-    ContactData updateContactData(int contactId, ContactDTO contactDTO);
+    ContactData updateContactData(String token, ContactDTO contactDTO);
 
-    ContactData getContactbyId(int contactId);
+    ContactData getContactbyId(String token);
 
-    void deleteContactById(int contactId);
+    void deleteContactById(String token);
 
     List<ContactData> sortContactsBycity();
 
