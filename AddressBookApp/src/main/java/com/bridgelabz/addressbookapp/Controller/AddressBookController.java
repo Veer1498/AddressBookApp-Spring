@@ -43,7 +43,7 @@ public class AddressBookController {
      * @return
      */
     @PostMapping("/create")
-    public ResponseEntity<ResponseDTO> saveDataIntoDataBase(@Valid @RequestBody ContactDTO contactDTO){
+    public ResponseEntity<ResponseDTO> saveDataIntoDataBase( @RequestBody ContactDTO contactDTO){
         String token = addessBookService.createContactData(contactDTO);
         ResponseDTO responseDTO = new ResponseDTO("Contact Data Created SuccessFully",token);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.CREATED);

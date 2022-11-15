@@ -17,7 +17,7 @@ public class ContactDTO {
 
     @Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "Last name Invalid")
 //    @NotBlank(message = "Should Not be Empty")
-    private String lasName;
+    private String lastName;
 
 //    @NotBlank(message = "Should Not be Empty")
     private String address;
