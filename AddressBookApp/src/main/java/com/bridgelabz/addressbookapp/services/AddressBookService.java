@@ -5,6 +5,7 @@ import com.bridgelabz.addressbookapp.exception.AddressBookException;
 import com.bridgelabz.addressbookapp.model.ContactData;
 import com.bridgelabz.addressbookapp.repository.AddressBookRepository;
 import com.bridgelabz.addressbookapp.utility.AddressBookUtility;
+import com.bridgelabz.addressbookapp.utility.MailSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,9 @@ public class AddressBookService implements IAddessBookService{
     @Autowired
     AddressBookUtility addressBookUtility;
 
+    @Autowired
+    MailSender mailSender;
+
     @Override
     public String getWelcomeMessage() {
         return "Welcome to Address Book Application";
@@ -38,6 +42,13 @@ public class AddressBookService implements IAddessBookService{
         ContactData contactData = new ContactData(contactDTO);
         addressBookRepository.save(contactData);
         String token = addressBookUtility.createToken(contactData.getContactId());
+        mailSender.sendEmail(contactData.getEmail(),
+                "Successfully Saved Your Contact",
+                "Your Contact Has Been Saved By VEER Successfully !!" +
+                        "\n Please Contact Him If Any Mistakes in Details," +
+                        "\n Name : "+contactData.getFirstName()+contactData.getLastName()+
+                        "\n Phone Number :"+contactData.getPhoneNo()+
+                        "\n\n\n\tVeer,\n\tDeveloper,\n\tIndia.");
         return token;
     }
 
@@ -85,5 +96,10 @@ public class AddressBookService implements IAddessBookService{
     @Override
     public List<ContactData> sortContactsByState() {
         return addressBookRepository.sortByState();
+    }
+
+    @Override
+    public List<ContactData> getAll() {
+        return addressBookRepository.findAll();
     }
 }

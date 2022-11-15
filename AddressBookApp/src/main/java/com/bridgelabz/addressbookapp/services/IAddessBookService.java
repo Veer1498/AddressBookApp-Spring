@@ -23,4 +23,6 @@ public interface IAddessBookService {
     List<ContactData> sortContactsBycity();
 
     List<ContactData> sortContactsByState();
+
+    List<ContactData>  getAll();
 }

@@ -2,12 +2,10 @@ package com.bridgelabz.addressbookapp.services;
 
 import com.bridgelabz.addressbookapp.dto.UserLoginDTO;
 import com.bridgelabz.addressbookapp.dto.UserRegistrationDTO;
-import com.bridgelabz.addressbookapp.exception.AddressBookException;
 import com.bridgelabz.addressbookapp.model.UserData;
 import com.bridgelabz.addressbookapp.repository.UserRepository;
 import com.bridgelabz.addressbookapp.utility.AddressBookUtility;
 import com.bridgelabz.addressbookapp.utility.MailSender;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

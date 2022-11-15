@@ -17,6 +17,7 @@ import java.util.List;
  * Author : Veer.Singa
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/addressbook")
 public class AddressBookController {
 
@@ -29,9 +30,11 @@ public class AddressBookController {
      *
      * Just a Welcome Message.
      */
-    @GetMapping(value = {"","/welcome"})
-    public String welcomeMessage(){
-        return addessBookService.getWelcomeMessage();
+    @GetMapping(value = {"","/getAll"})
+    public ResponseEntity<ResponseDTO> getAll(){
+        List<ContactData> contactList = addessBookService.getAll();
+        ResponseDTO responseDTO = new ResponseDTO("Getting List of Contacts",contactList);
+        return new ResponseEntity<>(responseDTO,HttpStatus.OK);
     }
 
     /**
