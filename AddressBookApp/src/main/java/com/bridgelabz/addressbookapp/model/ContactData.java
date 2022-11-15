@@ -39,7 +39,7 @@ public class ContactData {
      */
     public ContactData(ContactDTO contactDTO){
         this.firstName = contactDTO.getFirstName();
-        this.lastName = contactDTO.getLasName();
+        this.lastName = contactDTO.getLastName();
         this.address = contactDTO.getAddress();
         this.city = contactDTO.getCity();
         this.state = contactDTO.getState();
@@ -54,7 +54,7 @@ public class ContactData {
      */
     public void updateContactInfo(ContactDTO contactDTO) {
         this.firstName = contactDTO.getFirstName();
-        this.lastName = contactDTO.getLasName();
+        this.lastName = contactDTO.getLastName();
         this.address = contactDTO.getAddress();
         this.city = contactDTO.getCity();
         this.state = contactDTO.getState();

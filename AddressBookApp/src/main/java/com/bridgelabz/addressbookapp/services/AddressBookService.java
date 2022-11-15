@@ -46,10 +46,10 @@ public class AddressBookService implements IAddessBookService{
                 "Successfully Saved Your Contact",
                 "Your Contact Has Been Saved By VEER Successfully !!" +
                         "\n Please Contact Him If Any Mistakes in Details," +
-                        "\n Name : "+contactData.getFirstName()+contactData.getLastName()+
+                        "\n Name : "+contactData.getFirstName()+" "+contactData.getLastName()+
                         "\n Phone Number :"+contactData.getPhoneNo()+
-                        "\n\n\n\tVeer,\n\tDeveloper,\n\tIndia.");
-        return token;
+                        "\n\n\nVeer,\nDeveloper,\nIndia.");
+        return contactData.toString();
     }
 
     /**
