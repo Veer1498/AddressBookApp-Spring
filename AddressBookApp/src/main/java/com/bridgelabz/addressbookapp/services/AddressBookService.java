@@ -54,14 +54,13 @@ public class AddressBookService implements IAddessBookService{
 
     /**
      *
-     * @param token
+     * @param id
      * @param contactDTO
      * @return
      */
     @Override
-    public ContactData updateContactData(String token, ContactDTO contactDTO) {
-        int contactId = addressBookUtility.decodeJWT(token);
-        ContactData contactData = addressBookRepository.findById(contactId).orElseThrow(() -> new AddressBookException("Id May Not be Existed"));
+    public ContactData updateContactData(int id, ContactDTO contactDTO) {
+        ContactData contactData = addressBookRepository.findById(id).orElseThrow(() -> new AddressBookException("Id May Not be Existed"));
         contactData.updateContactInfo(contactDTO);
         return addressBookRepository.save(contactData);
     }
@@ -79,13 +78,12 @@ public class AddressBookService implements IAddessBookService{
 
     /**
      *
-     * @param token
+     * @param id
      */
     @Override
-    public void deleteContactById(String token) {
+    public void deleteContactById(int id) {
 
-        int contactId = addressBookUtility.decodeJWT(token);
-        addressBookRepository.deleteById(contactId);
+        addressBookRepository.deleteById(id);
     }
 
     @Override

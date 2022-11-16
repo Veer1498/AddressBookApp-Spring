@@ -51,14 +51,14 @@ public class AddressBookController {
 
     /**
      *Method to Update earlier data by using ID
-     * @param token
+     * @param id
      * @param contactDTO
      * @return
      */
-    @PutMapping("/update")
-    public ResponseEntity<ResponseDTO> updateDataofDataBase(@RequestHeader String token, @Valid @RequestBody ContactDTO contactDTO){
+    @PutMapping("/update/{id}")
+    public ResponseEntity<ResponseDTO> updateDataofDataBase(@PathVariable int id, @Valid @RequestBody ContactDTO contactDTO){
         ContactData contactData = null;
-        contactData = addessBookService.updateContactData(token,contactDTO);
+        contactData = addessBookService.updateContactData(id,contactDTO);
         ResponseDTO responseDTO = new ResponseDTO("Updated the Contact Information for this ID",contactData);
         return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
     }
@@ -78,11 +78,11 @@ public class AddressBookController {
 
     /**
      *Method to Delete by ID
-     * @param token
+     * @param id
      */
-    @DeleteMapping("delete")
-    public void deleteContactById(@RequestHeader String token){
-        addessBookService.deleteContactById(token);
+    @DeleteMapping("delete/{id}")
+    public void deleteContactById(@PathVariable int id){
+        addessBookService.deleteContactById(id);
     }
 
     /**
