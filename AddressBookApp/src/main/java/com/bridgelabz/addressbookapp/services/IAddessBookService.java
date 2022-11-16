@@ -14,11 +14,12 @@ public interface IAddessBookService {
 
     String createContactData(ContactDTO contactDTO);
 
-    ContactData updateContactData(String token, ContactDTO contactDTO);
+    ContactData updateContactData(int id, ContactDTO contactDTO);
 
     ContactData getContactbyId(String token);
 
-    void deleteContactById(String token);
+
+    void deleteContactById(int id);
 
     List<ContactData> sortContactsBycity();
 
